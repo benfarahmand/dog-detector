@@ -12,7 +12,7 @@ class DogDetection:
     def __init__(self):
 
         self.model = self.load_model()
-        self.image_directory = r'C:\Users\Ben\Documents\dog detector\images'
+        self.image_directory = r'C:\Users\Ben\Documents\dog-detector\images'
         self.classes = self.model.names
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
