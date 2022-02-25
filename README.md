@@ -10,4 +10,5 @@ Feel free to use this code.
 
 Credits:
 - The python script was heavily inspired by https://github.com/akash-agni/Real-Time-Object-Detection
+  - Note: Instead of using the torch version listed in the requirements.txt provided by akash-agni, I installed a CUDA version of pytorch: https://pytorch.org/get-started/locally/
 - The model is from https://github.com/ultralytics/yolov5
