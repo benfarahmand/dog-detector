@@ -10,3 +10,4 @@ Feel free to use this code.
 
 Credits:
 - The python script was heavily inspired by https://github.com/akash-agni/Real-Time-Object-Detection
+- The model is from https://github.com/ultralytics/yolov5
