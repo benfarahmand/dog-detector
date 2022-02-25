@@ -7,3 +7,6 @@ Set up a webcam, analyze the video stream with pytorch and opencv with the Yolov
 Using a CUDA graphics card for the image analysis. You could possibly get away with using a CPU, but it'll slow and the dog may get away before you snap a picture.
 
 Feel free to use this code.
+
+Credits:
+- The python script was heavily inspired by https://github.com/akash-agni/Real-Time-Object-Detection
