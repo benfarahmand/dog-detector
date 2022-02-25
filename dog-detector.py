@@ -17,7 +17,7 @@ class DogDetection:
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
     def load_model(self):
-        model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+        model = torch.hub.load('ultralytics/yolov5', 'yolov5s6', pretrained=True)
         return model
 
     def score_frame(self, frame):
@@ -53,20 +53,21 @@ class DogDetection:
         print("Running Dog Pooping Detection Algorithm!")
         player = cv2.VideoCapture(0)
         assert player.isOpened()
+        player.set(cv2.CAP_PROP_FRAME_WIDTH,1280)
+        player.set(cv2.CAP_PROP_FRAME_HEIGHT,720)
         x_shape = int(player.get(cv2.CAP_PROP_FRAME_WIDTH))
         y_shape = int(player.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        out_image_number = 0
+        print("width: "+str(x_shape)+" height: "+str(y_shape))
         while True:
             ret, frame = player.read()
             if not ret:
                 break
             results = self.score_frame(frame)
             frame, shouldISave = self.plot_boxes(results, frame)
-            #cv2.imshow('frame',frame) #if we want to view the webcam feed, uncomment this line
+            # cv2.imshow('frame',frame) #if we want to view the webcam feed, uncomment this line
             if shouldISave:
                 cv2.imwrite(self.image_directory + "\image"+str(datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))+".jpg", frame)
                 print("Saved image at "+str(datetime.datetime.now().strftime("%Y%m%d-%H%M%S")))
-                out_image_number+=1
             if cv2.waitKey(1) == ord('q'):
                 print("About to quit. One moment. Cleaning up.")
                 sleep(5)
@@ -77,7 +78,6 @@ class DogDetection:
                 break
             sleep(3)
         player.release()
-
 
 a = DogDetection()
 a()
