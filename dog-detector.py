@@ -76,7 +76,7 @@ class DogDetection:
                 print("About to quit. One moment. Cleaning up.")
                 sleep(5)
                 break
-            sleep(3)
+            sleep(3) #run once every 3 seconds to not hog computing resources
         player.release()
 
 a = DogDetection()
